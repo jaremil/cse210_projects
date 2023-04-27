@@ -13,21 +13,21 @@ class Program
 
         bool countinue = true;
 
-        while (true) {
+        while (countinue) {
             if (guess > secret_number) {
                 
                 Console.WriteLine($"{guess} is too high! Guess again");
-                bool countinue = true;
+                countinue = true;
 
             } else if (guess < secret_number){
                 
                 Console.WriteLine($"{guess} is too low! Guess again");
-                bool countinue = true;
+                countinue = true;
 
             } else if (guess == secret_number) {
                 
                 Console.WriteLine($"You're right! The number was {guess}");
-                bool countinue = false;
+                countinue = false;
 
             } 
         }
