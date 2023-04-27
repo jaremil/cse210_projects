@@ -8,7 +8,6 @@ class Program
 
         while (true) {
             Console.Write("Please enter a number (enter 0 to stop): ");
-
             int number = int.Parse(Console.ReadLine());
             
             if (number == 0) {
@@ -19,11 +18,13 @@ class Program
         
         }
 
+        int sum = 0;
+
         foreach (var num in numbers) {
-            int number_added = 0;
-
-            
-
+            sum+= num;
         }
+
+            float average =(float)sum / (float)numbers.Count;
+
     }
 }
