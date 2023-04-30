@@ -4,32 +4,30 @@ class Program
 {
     static void Main(string[] args)
     {
-        Random generator = new Random();
-        int secret_number = generator.Next(1,3);
 
-        Console.Write("What is your guess? ");
-        string guess_str = Console.ReadLine();
-        int guess = int.Parse (guess_str);
+        Random randomGenerator = new Random();
+        int magicNumber = randomGenerator.Next(1, 101);
 
-        bool countinue = true;
+        int guess = -1;
 
-        while (countinue) {
-            if (guess > secret_number) {
-                
-                Console.WriteLine($"{guess} is too high! Guess again");
-                countinue = true;
+        while (guess != magicNumber)
+        {
+            Console.Write("What is your guess? ");
+            guess = int.Parse(Console.ReadLine());
 
-            } else if (guess < secret_number){
-                
-                Console.WriteLine($"{guess} is too low! Guess again");
-                countinue = true;
+            if (magicNumber > guess)
+            {
+                Console.WriteLine("Higher");
+            }
+            else if (magicNumber < guess)
+            {
+                Console.WriteLine("Lower");
+            }
+            else
+            {
+                Console.WriteLine("You guessed it!");
+            }
 
-            } else if (guess == secret_number) {
-                
-                Console.WriteLine($"You're right! The number was {guess}");
-                countinue = false;
-
-            } 
-        }
+        }                    
     }
 }
