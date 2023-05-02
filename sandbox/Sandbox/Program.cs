@@ -12,7 +12,6 @@ class Program
     }
 }
 
-
 // class means classification
 // public = can be used in other places
 // void = doesn't return a value
