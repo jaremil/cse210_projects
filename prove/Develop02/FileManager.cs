@@ -1,34 +1,3 @@
-using System;
-
-class Program{
-    static void Menu(int[] args) {
-    
-    }
-
-    public int userInput = 
-}
-
-class PromptGenorator{
-    
-   var prompts = new List<String> {
-    
-    };
-        
-    static void Random(string[] arg) {
-
-    }
-}
-
-// displayEntryList(Entry):
-// List<string>
-class Journal{
-    public List<Entry> listEntries = new List<Entry>();
-
-    public string displayEntryList(Entry){
-
-    }
-}
-
 class FileManager {
 
     public void SaveJournal (Journal journal, string filename) {
@@ -62,12 +31,4 @@ class FileManager {
             return journal;
         }
     }
-}
-
-// displayEntry(): string
-class Entry{
-    
-    public string _text;
-    public string _prompt;
-    public string _date;
 }
