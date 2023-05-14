@@ -1,28 +1,41 @@
-using System;
+using System.IO; 
 
 class Program{
+
+    public int userInput = 0;
+
+
     static void Menu(int[] args) {
+
 
     }
 
-    public int userInput = 0;
+
 }
 
 class PromptGenerator{
-    
-    List<String> prompts = new List<String>{};
+
+    static void Prompt()
+    {
+        List<String> prompts = new List<String>{
+            "Who was the most interesting person I interacted with today?",
+            "What was the best part of my day?",
+            "How did I see the hand of the Lord in my life today?",
+            "What was the strongest emotion I felt today?",
+            "If I had one thing I could do over today, what would it be?"
+        };
+    }
 
     static void Random(string[] arg) {
-
+    Prompt();
     }
 }
 
 class Journal{
     public List<Entry> listEntries = new List<Entry>();
-
     public string displayEntryList(Entry entry){
 
-    return "hello";
+    return "journal";
     }
 }
 
@@ -39,6 +52,18 @@ class FileManager {
     }
 
     public Journal LoadJournal(string filename) {
+
+        string filename = "myFile.txt";
+        string[] lines = System.IO.File.ReadAllLines(filename);
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(",");
+
+            string firstName = parts[0];
+            string lastName = parts[1];
+        }
+
         string[] lines = System.IO.File.ReadAllLines(filename);
         Journal journal = new Journal();
 
@@ -56,6 +81,7 @@ class FileManager {
 
             journal.listEntries.Add(entry);
         }
+
         return journal;
     }
 }
@@ -66,6 +92,5 @@ class Entry{
     public string _prompt;
     public string _date;
 
-    public string displayEntry(){return "string";}
-
+    public string displayEntry(){return "entry";}
 }
