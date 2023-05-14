@@ -7,9 +7,7 @@ class Program{
 
     static void Menu(int[] args) {
 
-
     }
-
 
 }
 
