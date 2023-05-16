@@ -6,7 +6,7 @@ class Program{
 
 
     static void Menu(int[] args) {
-
+        
     }
 
 }
@@ -49,10 +49,10 @@ class FileManager {
         }
     }
 
-    public Journal LoadJournal(string filename) {
+    public Journal LoadJournal(string file) {
 
         string filename = "myFile.txt";
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        string[] lines = System.IO.File.ReadAllLines(file);
 
         foreach (string line in lines)
         {
@@ -62,7 +62,7 @@ class FileManager {
             string lastName = parts[1];
         }
 
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        string[] Line = System.IO.File.ReadAllLines(file);
         Journal journal = new Journal();
 
         foreach (string line in lines){
