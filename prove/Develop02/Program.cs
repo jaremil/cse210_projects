@@ -6,7 +6,10 @@ class Program{
 
 
     static void Menu(int[] args) {
-        
+        if (userInput = 1){
+            
+        };
+
     }
 
 }
