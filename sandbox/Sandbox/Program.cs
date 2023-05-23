@@ -6,6 +6,10 @@ class Program
     {
         var personOne = new Person("Layne", "Moseley");
         var personTwo = new Person("David", "Hasselhoff");
+        List<string> myList = new List<string>() {
+            "Jade Miller",
+            "Jane Doe"
+        };
 
         personOne.Talk();
         personTwo.Talk();
