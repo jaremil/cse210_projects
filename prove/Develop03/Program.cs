@@ -15,17 +15,19 @@ class Program {
 
         verse1.DisplayScripture();
 
+        Console.WriteLine("\n Press 'enter' to change the amount of words displayed in the scripture.\n Type 'quit' before pressing 'enter' to end the program\n");
+
         // gets user input and does functions
-        do 
+        while (Console.ReadLine() != "quit")
         {
-            
-            Console.WriteLine("\n Press 'enter' to change the amount of words displayed in the scripture.\n Type 'quit' before pressing 'enter' to end the program.\n");
+            Console.Clear();
 
             verse1.HideRandom();
-            verse1.DisplayScripture();     
-        }
-        while (Console.ReadLine() != "quit");
+            verse1.DisplayScripture();  
 
+            Console.WriteLine("\n Press 'enter' to change the amount of words displayed in the scripture.\n Type 'quit' before pressing 'enter' to end the program.\n");
+
+        }
     }
 }
 
@@ -113,7 +115,7 @@ class Word {
 
     public void Hide() {
 
-        _letters = ":0";
+        _letters = "___";
         _isHidden = true;
     }
 }
