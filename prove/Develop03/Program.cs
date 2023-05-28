@@ -3,8 +3,28 @@ using System;
 class Program {
     static void Main(string[] args) {
 
-        // gets user input
-        Console.WriteLine("\n Press 'enter' to change the amount of words displayed in the scripture.\n Type 'quit' before pressing 'enter' to end the program.\n");
+        string text = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.\n";
+
+        string moreText = "Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.\n";
+
+        Reference reference1 = new Reference("\nJohn", "3", "16");
+        Scripture verse1 = new Scripture(reference1, text);
+
+        Reference reference2 = new Reference("\nProverbs", "3", "5-6");
+        Scripture verse2 = new Scripture(reference2, moreText);
+
+        verse1.DisplayScripture();
+
+        // gets user input and does functions
+        do 
+        {
+            
+            Console.WriteLine("\n Press 'enter' to change the amount of words displayed in the scripture.\n Type 'quit' before pressing 'enter' to end the program.\n");
+
+            verse1.HideRandom();
+            verse1.DisplayScripture();     
+        }
+        while (Console.ReadLine() != "quit");
 
     }
 }
@@ -12,30 +32,31 @@ class Program {
 class Reference {
     // attribute
     string _name;
-    int _chapter;
-    int _verses;
+    string _chapter;
+    string _verses;
 
     // constructor
-    public Reference (string name, int chapter, int verses) {
+    public Reference (string name, string chapter, string verses) {
         _name = name;
         _chapter = chapter;
         _verses = verses;
     }
 
     // method
-    void Display()  {
+    public void Display()  {
+
+        Console.WriteLine(_name + " " + _chapter + ":" + _verses);
 
     }
 }
 
-class Scripture {
-    // attribute
+class Scripture  {   // attribute
     Reference _reference;
     string _text;
+    
     private List<Word> _words;
 
     // declares string of scripture (still thinking through this one)
-    public string text = "!scripture here!";
 
     // constructor
     public Scripture(Reference reference, string text) {
@@ -52,22 +73,47 @@ class Scripture {
     }
 
     // method
-    void DisplayScripture()  {
+    public void DisplayScripture()  {
+        
+        _reference.Display();
+
+        foreach (var w in _words) {
+            w.Display();
+        }
+    }
+
+    public void HideRandom() {
+
+        var random = new Random();
+
+        _words[random.Next(_words.Count)].Hide();
+        _words[random.Next(_words.Count)].Hide();
+        _words[random.Next(_words.Count)].Hide();
 
     }
 }
 
+// Refferenced as w
 class Word {
     // attribute
     string _letters;
+    public bool _isHidden;
 
     // constructor
-    public Word (string wordList) {
-        _letters = wordList;
+    public Word (string letterList) {
+        _letters = letterList;
+        _isHidden = false;
     }
 
     // method
-    void Display()  {
+    public void Display()  {
 
+        Console.Write(" " + _letters);
+    }
+
+    public void Hide() {
+
+        _letters = ":0";
+        _isHidden = true;
     }
 }
