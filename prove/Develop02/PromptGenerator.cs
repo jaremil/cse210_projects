@@ -1,7 +1,7 @@
 using System;
 class PromptGenerator {
     public List<String> _prompts;
-    public void Prompt()
+    public PromptGenerator()
     {
         _prompts = new List<String> (){
             "Who was the most interesting person I interacted with today?",
@@ -12,7 +12,9 @@ class PromptGenerator {
         };
     }
 
-    void Random(string[] arg) {
-        Prompt();
+    public string GetRandomPrompt() {
+        Random randomPrompt = new Random();
+        int i = randomPrompt.Next(0,5);
+        return _prompts[i];
     }
 }
