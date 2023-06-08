@@ -12,7 +12,9 @@ class Program {
 
         Parent.Countdown(7);
         Parent.ShowSpinner(5);
-        Parent.Breath(8);
+
+        var breathing = new BreathingActivity(startmessageBreathing, endmessageBreathing);
+        breathing.Breath();
     }
 
     class Startmessage {
@@ -36,6 +38,7 @@ class Program {
     class Parent {
         Startmessage _startmessage;
         Endmessage _endmessage;
+        protected int durtation = 27;
 
         public Parent(Startmessage startmessage, Endmessage endmessage){
             _startmessage = startmessage;
@@ -98,8 +101,16 @@ class Program {
                 }
             }
         }
+    }
 
-            public static void Breath(int duration) {
+    class BreathingActivity:Parent {
+
+
+        public BreathingActivity(Startmessage startmessage, Endmessage endmessage): base(startmessage, endmessage){
+
+        }
+
+        public void Breath() {
 
             List<string> animations = new List<string> {
                 "breath in",
@@ -113,7 +124,7 @@ class Program {
             };
 
             var startTime = DateTime.Now;
-            var endTime = startTime.AddSeconds(duration);
+            var endTime = startTime.AddSeconds(durtation);
 
             int animationIndex = 0;
 
