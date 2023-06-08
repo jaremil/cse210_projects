@@ -10,87 +10,124 @@ class Program {
         var endmessageReflection = new Endmessage("Good job with your reflecting!");
         var endmessageListing = new Endmessage("That was a good list that you wrote!");
 
-        ShowSpinner(5);
-        Breath(8);
-
+        Parent.Countdown(7);
+        Parent.ShowSpinner(5);
+        Parent.Breath(8);
     }
 
     class Startmessage {
-        protected string _introduction;
-        protected string _description;
+            protected string _introduction;
+            protected string _description;
 
-        public Startmessage(string introduction, string description){
-            _introduction = introduction;
-            _description = description;
+            public Startmessage(string introduction, string description){
+                _introduction = introduction;
+                _description = description;
+            }
         }
-    }
 
-    class Endmessage {
-        protected string _endmessage;
+        class Endmessage {
+            protected string _endmessage;
 
-        public Endmessage(string endmessage){
+            public Endmessage(string endmessage){
+                _endmessage = endmessage;
+            }
+        }
+
+    class Parent {
+        Startmessage _startmessage;
+        Endmessage _endmessage;
+
+        public Parent(Startmessage startmessage, Endmessage endmessage){
+            _startmessage = startmessage;
             _endmessage = endmessage;
         }
-    }
+        public static void Countdown(int duration) {
+            List<string> animations = new List<string> {
+                "7",
+                "6",
+                "5",
+                "4",
+                "3",
+                "2",
+                "1",
+            };
 
-    static void ShowSpinner(int duration) {
+            var startTime = DateTime.Now;
+            var endTime = startTime.AddSeconds(duration);
 
-        List<string> animations = new List<string> {
-            "-",
-            "\\",
-            "|",
-            "/",
-        };
+            int animationIndex = 0;
 
-        var startTime = DateTime.Now;
-        var endTime = startTime.AddSeconds(duration);
+            while(DateTime.Now < endTime) {
+                string frame = animations[animationIndex];
+                Console.Clear();
+                Console.Write(frame);
+                Thread.Sleep(1000);
 
-        int animationIndex = 0;
+                animationIndex++;
+                if (animationIndex >= animations.Count) {
+                    animationIndex = 0;
+                }
+            }
+        }
 
-        while(DateTime.Now < endTime) {
-            string frame = animations[animationIndex];
-            
-            Console.Clear();
-            Console.Write(frame);
-            Thread.Sleep(250);
-            Console.Write("\b \b");
+        public static void ShowSpinner(int duration) {
 
-            animationIndex++;
-            if (animationIndex >= animations.Count) {
-                animationIndex = 0;
+            List<string> animations = new List<string> {
+                "-",
+                "\\",
+                "|",
+                "/",
+            };
+
+            var startTime = DateTime.Now;
+            var endTime = startTime.AddSeconds(duration);
+
+            int animationIndex = 0;
+
+            while(DateTime.Now < endTime) {
+                string frame = animations[animationIndex];
+                
+                Console.Clear();
+                Console.Write(frame);
+                Thread.Sleep(250);
+                Console.Write("\b \b");
+
+                animationIndex++;
+                if (animationIndex >= animations.Count) {
+                    animationIndex = 0;
+                }
+            }
+        }
+
+            public static void Breath(int duration) {
+
+            List<string> animations = new List<string> {
+                "breath in",
+                "breath in 1",
+                "breath in 2",
+                "breath in 3",
+                "breath out",
+                "breath out 1",
+                "breath out 2",
+                "breath out 3",
+            };
+
+            var startTime = DateTime.Now;
+            var endTime = startTime.AddSeconds(duration);
+
+            int animationIndex = 0;
+
+            while(DateTime.Now < endTime) {
+                string frame = animations[animationIndex];
+                Console.Write(frame);
+                Thread.Sleep(1000);
+                Console.Clear();
+
+                animationIndex++;
+                if (animationIndex >= animations.Count) {
+                    animationIndex = 0;
+                }
             }
         }
     }
-
-        static void Breath(int duration) {
-
-        List<string> animations = new List<string> {
-            "breath in",
-            "breath in 1",
-            "breath in 2",
-            "breath in 3",
-            "breath out",
-            "breath out 1",
-            "breath out 2",
-            "breath out 3",
-        };
-
-        var startTime = DateTime.Now;
-        var endTime = startTime.AddSeconds(duration);
-
-        int animationIndex = 0;
-
-        while(DateTime.Now < endTime) {
-            string frame = animations[animationIndex];
-            Console.Write(frame);
-            Thread.Sleep(1000);
-            Console.Clear();
-
-            animationIndex++;
-            if (animationIndex >= animations.Count) {
-                animationIndex = 0;
-            }
-        }
-    }
-
 }
