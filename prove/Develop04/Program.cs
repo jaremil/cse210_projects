@@ -6,12 +6,12 @@ class Program {
         var startmessageBreathing = new Startmessage("Welcome to the Breathing Activity", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
         var startmessageReflection = new Startmessage("Welcome to the Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
         var startmessageListing = new Startmessage("Welcome to the Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
-        var endmessageBreathing = new Endmessage("You did a good job with your breathing!");
+        var endmessageBreathing = new Endmessage("You did a good job focusing on your breathing!");
         var endmessageReflection = new Endmessage("Good job with your reflecting!");
-        var endmessageListing = new Endmessage("That was a good list that you wrote!");
+        var endmessageListing = new Endmessage("Good job! That's a great list!");
 
-        Parent.Countdown(7);
-        Parent.ShowSpinner(5);
+        Activity.Countdown(7);
+        Activity.ShowSpinner(5);
 
         var breathing = new BreathingActivity(startmessageBreathing, endmessageBreathing);
         breathing.Breath();
@@ -27,7 +27,7 @@ class Program {
             }
         }
 
-        class Endmessage {
+    class Endmessage {
             protected string _endmessage;
 
             public Endmessage(string endmessage){
@@ -35,15 +35,21 @@ class Program {
             }
         }
 
-    class Parent {
+    // Parent class
+    class Activity {
         Startmessage _startmessage;
         Endmessage _endmessage;
         protected int durtation = 27;
 
-        public Parent(Startmessage startmessage, Endmessage endmessage){
+        public Activity(Startmessage startmessage, Endmessage endmessage){
             _startmessage = startmessage;
             _endmessage = endmessage;
         }
+
+        Console.WriteLine("How long in seconds would you like to run this activity? ");
+        string durationstring = Console.ReadLine();
+        int duration = int.Parse(durationstring);
+
         public static void Countdown(int duration) {
             List<string> animations = new List<string> {
                 "7",
@@ -103,7 +109,7 @@ class Program {
         }
     }
 
-    class BreathingActivity:Parent {
+    class BreathingActivity:Activity {
 
 
         public BreathingActivity(Startmessage startmessage, Endmessage endmessage): base(startmessage, endmessage){
