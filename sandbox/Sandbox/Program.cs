@@ -1,40 +1,107 @@
 using System;
 
-class Program {
-    static void Main() {
-    ShowSpinner(5);
-    }
+// class Program {
 
-    static void ShowSpinner(int duration) {
 
-        List<string> animations = new List<string> {
-            "-",
-            "\\",
-            "|",
-            "/",
-        };
+//     // override means override
+//     // virtual means that it can be overriden 
 
-    var startTime = DateTime.Now;
-    var endTime = startTime.AddSeconds(duration);
+//     static void Main(string[] arg) {
+//         var hourly = new HourlyEmployee(1000, "elon musk", 14);
+//         var salary = new SalaryEmployee(90000, "roberst oppenheimer", 14);
 
-    int animationIndex = 0;
+//         var employees = new List<Employee> {hourly, salary };
 
-    while(DateTime.Now < endTime) {
+//         foreach (var employees)
+//     }
 
-        string frame = animations[animationIndex];
-        Console.Write(frame);
+// }
 
-        Thread.Sleep(250);
+// class Employee {
+//     // attributes
+//     string _name;
+//     protected int _payPeriodLength;
 
-        Console.Write("\b \b");
+//     //constructor
+//     public Employee (string name, int payPeriodLength) {
+//         _name = name;
+//         _payPeriodLength = payPeriodLength;
 
-        animationIndex++;
-        if (animationIndex >= animations.Count) {
-            animationIndex = 0;
-        }
-    }
-}
-}
+//     }
+// }
+
+// class HourlyEmployee: Employee {
+//     // attributes
+//         // 'double' is a floating point value. takes up twice as much memory(still small) but is more percice then a float        double rate;
+//     double rate;
+
+//     // constructor
+//     public HourlyEmployee(double rate, string name, int payPeriodLength): base(name, payPeriodLength) {
+//         _rate = rate;
+//     }
+
+//     public double PayPeriodWages () {
+//         return rate * 8 * payPeriodLength;
+//     }
+// }
+
+// class SalaryEmployee: Employee {
+//     // attributes
+//     double annualRate;
+
+//     // constructor
+//     public SalaryEmployee: (double annualRate, ): base(name, payPeriodLength)
+
+//     public double PayPeriodWages() {
+//         return (payPeriodLength / 365) * annualRate;
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+// class Program {
+//     static void Main() {
+//     ShowSpinner(5);
+//     }
+
+//     static void ShowSpinner(int duration) {
+
+//         List<string> animations = new List<string> {
+//             "-",
+//             "\\",
+//             "|",
+//             "/",
+//         };
+
+//     var startTime = DateTime.Now;
+//     var endTime = startTime.AddSeconds(duration);
+
+//     int animationIndex = 0;
+
+//     while(DateTime.Now < endTime) {
+
+//         string frame = animations[animationIndex];
+//         Console.Write(frame);
+
+//         Thread.Sleep(250);
+
+//         Console.Write("\b \b");
+
+//         animationIndex++;
+//         if (animationIndex >= animations.Count) {
+//             animationIndex = 0;
+//         }
+//     }
+// }
+// }
 
 
 // class Program {

@@ -10,11 +10,44 @@ class Program {
         var endmessageReflection = new Endmessage("Good job with your reflecting!");
         var endmessageListing = new Endmessage("Good job! That's a great list!");
 
-        Activity.Countdown(7);
-        Activity.ShowSpinner(5);
+        string userInput = "0";
 
-        var breathing = new BreathingActivity(startmessageBreathing, endmessageBreathing);
-        breathing.Breath();
+        while (userInput != "4")
+        {
+            Console.Clear();
+            Console.WriteLine("Please choose a mindfullness activity by inputing the corresponding number");
+            Console.WriteLine("\n1. Breathing Activity");
+            Console.WriteLine("2. Refection Activity");
+            Console.WriteLine("3. Listing Activity");
+            Console.WriteLine("4. Exit program");
+            Console.Write("\nEnter number here: ");
+
+            
+            userInput = Console.ReadLine();
+
+            if (userInput == "1")
+            {
+                
+                Activity.ShowSpinner(5);
+                var breathing = new BreathingActivity(startmessageBreathing, endmessageBreathing);
+                 breathing.Breath();
+                Console.WriteLine(endmessageBreathing);
+            }
+            else if (userInput == "2")
+            {
+                Console.WriteLine(startmessageReflection);
+                Activity.ShowSpinner(5);
+                Activity.Countdown(7);
+                Console.WriteLine(endmessageReflection);
+            }
+            else if (userInput == "3")
+            {
+                Console.WriteLine(startmessageListing);
+                Activity.ShowSpinner(5);
+                Activity.Countdown(7);
+                Console.WriteLine(endmessageListing);
+            }
+        };
     }
 
     class Startmessage {
@@ -45,10 +78,6 @@ class Program {
             _startmessage = startmessage;
             _endmessage = endmessage;
         }
-
-        Console.WriteLine("How long in seconds would you like to run this activity? ");
-        string durationstring = Console.ReadLine();
-        int duration = int.Parse(durationstring);
 
         public static void Countdown(int duration) {
             List<string> animations = new List<string> {
@@ -111,7 +140,6 @@ class Program {
 
     class BreathingActivity:Activity {
 
-
         public BreathingActivity(Startmessage startmessage, Endmessage endmessage): base(startmessage, endmessage){
 
         }
@@ -136,6 +164,7 @@ class Program {
 
             while(DateTime.Now < endTime) {
                 string frame = animations[animationIndex];
+
                 Console.Write(frame);
                 Thread.Sleep(1000);
                 Console.Clear();
