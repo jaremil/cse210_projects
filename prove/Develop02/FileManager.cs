@@ -35,12 +35,12 @@ class FileManager {
             string prompt = parts[1];
             string text = parts[2];
 
-            Entry entry = new Entry();
-            entry._date = date;
-            entry._prompt = prompt;
-            entry._text = text;
+            // Entry entry = new Entry();
+            // entry._date = date;
+            // entry._prompt = prompt;
+            // entry._text = text;
 
-            journal.listEntries.Add(entry);
+            // journal.listEntries.Add(entry);
         }
 
         return journal;

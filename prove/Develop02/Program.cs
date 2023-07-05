@@ -46,13 +46,13 @@ class Program {
                 Console.WriteLine("Write your journal entry here:");
                 string text = Console.ReadLine();
 
-                DateTime date = new DateTime();
-                date.Now.
+                // DateTime date = new DateTime();
+                // date.Now.
 
 
-                string date = 
+                // string date = 
 
-                Entry entry = new Entry(text, prompt, date);
+                // Entry entry = new Entry(text, prompt, date);
             }
             else if (userInput == "2")
             {
