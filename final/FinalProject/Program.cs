@@ -1,17 +1,14 @@
 using System;
 
-class Program {
-    private List<string> _startMenu;
-    private bool _guess;
-    private int _testData;
+// I have six result percentages that I would like to add up into one percentage. How would I do that?
 
-    public Program (List<string> startMenu, bool guess, int testData){
-        _startMenu = startMenu;
-        _guess = guess;
-        _testData = testData;
-    }
+class Program {
+    static private List<string> _startMenu;
+    static private bool _guess;
+    static private int _testData;
     
     static void Main(string[] args) {
+
         var startmessageDecisionMaking = new StartMessage("Introduction", "Description");
         var startmessageHabits = new StartMessage("Introduction", "Description");
         var startmessagePreferences = new StartMessage("Introduction", "Description");
@@ -30,7 +27,6 @@ class StartMessage {
     }
 }
 
-// parent class
 class Tests {
 
     StartMessage _startMessage;
@@ -77,50 +73,96 @@ class Tests {
     }
 }
 
-class DecisionMaking {
-    private List<string> _decisions;
+class Question {
+    string _question;
+    int _points;
 
-    public DecisionMaking (List<string> decisons){
+    public Question (string question, int points){
+        _points = points;
+        _question = question;
+    }
+}
+
+class DecisionMaking {
+    private List<Question> _decisions;
+
+    public DecisionMaking (List<Question> decisons){
         _decisions = decisons;
     }
+    List<Question> emotions = new List<Question> {
+        new Question("question here", 10),
+        new Question("question here", 20),
+        new Question("question here", 30),
+        new Question("question here", 40)
+    };
 }
 
 class Habits {
-    private List<string> _habits;
+    private List<Question> _habits;
 
-    public Habits (List<string> habits){
+    public Habits (List<Question> habits){
         _habits = habits;
     }
+    List<Question> emotions = new List<Question> {
+        new Question("question here", 10),
+        new Question("question here", 20),
+        new Question("question here", 30),
+        new Question("question here", 40)
+    };
 }
 
 class Preferences{
-    private List<string> _preferences;
+    private List<Question> _preferences;
 
-    public Preferences (List<string> preferences){
+    public Preferences (List<Question> preferences){
         _preferences = preferences;
     }
+    List<Question> emotions = new List<Question> {
+        new Question("question here", 10),
+        new Question("question here", 20),
+        new Question("question here", 30),
+        new Question("question here", 40)
+    };
 }
 
 class Strengths {
-    private List<string> _strengths;
+    private List<Question> _strengths;
 
-    public Strengths (List<string> strengths){
+    public Strengths (List<Question> strengths){
         _strengths = strengths;
     }
+    List<Question> emotions = new List<Question> {
+        new Question("question here", 10),
+        new Question("question here", 20),
+        new Question("question here", 30),
+        new Question("question here", 40)
+    };
 }
 
 class Trivia {
-    private List<string> _trivia;
+    private List<Question> _trivia;
 
-    public Trivia (List<string> trivia){
+    public Trivia (List<Question> trivia){
         _trivia = trivia;
     }
+    List<Question> emotions = new List<Question> {
+        new Question("question here", 10),
+        new Question("question here", 20),
+        new Question("question here", 30),
+        new Question("question here", 40)
+    };
 }
 
 class Emotions {
-    private List<string> _emotions;
+    private List<Question> _emotions;
 
-    public Emotions (List<string> emotions){
+    public Emotions (List<Question> emotions){
         _emotions = emotions;
     }
+    List<Question> emotions = new List<Question> {
+        new Question("question here", 10),
+        new Question("question here", 20),
+        new Question("question here", 30),
+        new Question("question here", 40)
+    };
 }
