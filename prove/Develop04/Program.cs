@@ -12,8 +12,7 @@ class Program {
 
         string userInput = "0";
 
-        while (userInput != "4")
-        {
+        while (userInput != "4") {
             Console.Clear();
             Console.WriteLine("Please choose a mindfullness activity by inputing the corresponding number");
             Console.WriteLine("\n1. Breathing Activity");
@@ -21,7 +20,6 @@ class Program {
             Console.WriteLine("3. Listing Activity");
             Console.WriteLine("4. Exit program");
             Console.Write("\nEnter number here: ");
-
             
             userInput = Console.ReadLine();
 

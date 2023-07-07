@@ -1,57 +1,96 @@
 using System;
 
-// I have six result percentages that I would like to add up into one percentage. How would I do that?
-
 class Program {
-    static private List<string> _startMenu;
-    static private bool _guess;
-    static private int _testData;
     
-    static void Main(string[] args) {
+    static void Main() {
 
-        var startmessageDecisionMaking = new StartMessage("Introduction", "Description");
-        var startmessageHabits = new StartMessage("Introduction", "Description");
-        var startmessagePreferences = new StartMessage("Introduction", "Description");
-        var startmessageStrengths = new StartMessage("Introduction", "Description");
-        var startmessageTrivia = new StartMessage("Introduction", "Description");
-        var startmessageEmotions = new StartMessage("Introduction", "Description");
+        DecisionMaking decisionMaking = new DecisionMaking();
+
+        string startMessageDecisionMaking = "Introduction, Desciption";
+
+        // Tests.Loading(5);
+        Console.Clear();
+        Console.WriteLine("Welcome! This program will ask you a series of questionnaires to determine if you think more logically or creatively.");
+        Console.WriteLine("");
+        Console.WriteLine("Please Note that these questions provide a simplified way to assess thinking tendencies and individuals may not strickly fit into one category. However, they can provide some insight into whether a person leans more towards logical or creative thinking.");
+     
+        List<string> history = new List<string>();
+
+        string userInput = "";
+        while (userInput != "7") {
+            Console.WriteLine("1-6 7 stop");
+            userInput = Console.ReadLine();
+            if (userInput == "1"){
+                if (!history.Contains("1")){
+                    history.Add("1");
+                    Console.WriteLine(startMessageDecisionMaking);
+                    decisionMaking.doActivity();
+                }
+                else{
+                    Console.WriteLine("This test has already been finished.");
+                }
+            }
+            if (userInput == "2"){
+                // Console.WriteLine(startmessageHabits);
+            }
+            else if (userInput == "3"){
+                // Console.WriteLine(startmessagePreferences);
+            }
+            else if (userInput == "4"){
+                // Console.WriteLine(startmessageStrengths);
+            }
+            else if (userInput == "5"){
+                // Console.WriteLine(startMessageTrivia);
+            }
+            else if (userInput == "6"){
+                // Console.WriteLine(startMessageEmotions);
+            }
+        }
     }
 }
 
-class StartMessage {
-    protected string _introduction;
-    protected string _description;
+class Guess {
+    private bool _guess;
+        Guess (bool guess){
+            _guess = guess;
+        }
+}
 
-    public StartMessage(string introduction, string description){
-        _introduction = introduction;
+class Answer {
+    string _answers;
+    int _points;
+
+    public Answer (string answers, int points){
+        _points = points;
+        _answers = answers;
+    }
+}
+
+class Question {
+    string _question;
+
+    public Question (string question){
+        _question = question;
     }
 }
 
 class Tests {
 
-    StartMessage _startMessage;
     string _description;
     List<string> _loading;
 
-    public Tests(StartMessage startMessage, string description, List<string> loading){
-        _startMessage = startMessage;
+    public Tests(string description, List<string> loading){
         _description = description;
         _loading = loading;
     }
 
-    private void Results() {
+    public static void Loading(int duration) {
 
-    }
-
-    public static void Countdown(int duration) {
         List<string> animations = new List<string> {
-            "7",
-            "6",
-            "5",
-            "4",
-            "3",
-            "2",
-            "1",
+            "Loading -",
+            "Loading \\",
+            "Loading |",
+            "Loading /",
         };
 
         var startTime = DateTime.Now;
@@ -61,9 +100,11 @@ class Tests {
 
         while(DateTime.Now < endTime) {
             string frame = animations[animationIndex];
+            
             Console.Clear();
             Console.Write(frame);
-            Thread.Sleep(1000);
+            Thread.Sleep(225);
+            Console.Write("\b \b");
 
             animationIndex++;
             if (animationIndex >= animations.Count) {
@@ -73,96 +114,100 @@ class Tests {
     }
 }
 
-class Question {
-    string _question;
-    int _points;
-
-    public Question (string question, int points){
-        _points = points;
-        _question = question;
-    }
-}
-
 class DecisionMaking {
-    private List<Question> _decisions;
 
-    public DecisionMaking (List<Question> decisons){
-        _decisions = decisons;
-    }
-    List<Question> emotions = new List<Question> {
-        new Question("question here", 10),
-        new Question("question here", 20),
-        new Question("question here", 30),
-        new Question("question here", 40)
+    private int score = 0;
+    private List<string> _decisions = new List<string>(){
+        "Question 1",
+        "2",
+        "3",
+        "4"
     };
+
+    public DecisionMaking (){
+    
+    }
+
+    public int returnScore(){
+        return score;
+    }
+    public void doActivity(){
+
+        foreach (string decision in _decisions){
+            Console.WriteLine(decision);
+    
+            Console.WriteLine("1 Yes 2 It's Possible 3 Eh, I don't think so 4 No way it does");
+            score += int.Parse(Console.ReadLine()) * 10;
+        }
+    }
 }
 
 class Habits {
-    private List<Question> _habits;
+    private List<Answer> _habits;
 
-    public Habits (List<Question> habits){
+    public Habits (List<Answer> habits){
         _habits = habits;
     }
-    List<Question> emotions = new List<Question> {
-        new Question("question here", 10),
-        new Question("question here", 20),
-        new Question("question here", 30),
-        new Question("question here", 40)
+    List<Answer> emotions = new List<Answer> {
+        new Answer("question here", 10),
+        new Answer("question here", 20),
+        new Answer("question here", 30),
+        new Answer("question here", 40)
     };
 }
 
 class Preferences{
-    private List<Question> _preferences;
+    private List<Answer> _preferences;
 
-    public Preferences (List<Question> preferences){
+    public Preferences (List<Answer> preferences){
         _preferences = preferences;
     }
-    List<Question> emotions = new List<Question> {
-        new Question("question here", 10),
-        new Question("question here", 20),
-        new Question("question here", 30),
-        new Question("question here", 40)
+    List<Answer> emotions = new List<Answer> {
+        new Answer("question here", 10),
+        new Answer("question here", 20),
+        new Answer("question here", 30),
+        new Answer("question here", 40)
     };
 }
 
 class Strengths {
-    private List<Question> _strengths;
+    private List<Answer> _strengths;
 
-    public Strengths (List<Question> strengths){
+    public Strengths (List<Answer> strengths){
         _strengths = strengths;
     }
-    List<Question> emotions = new List<Question> {
-        new Question("question here", 10),
-        new Question("question here", 20),
-        new Question("question here", 30),
-        new Question("question here", 40)
+    List<Answer> emotions = new List<Answer> {
+        new Answer("question here", 10),
+        new Answer("question here", 20),
+        new Answer("question here", 30),
+        new Answer("question here", 40)
     };
 }
 
 class Trivia {
-    private List<Question> _trivia;
+    private List<Answer> _trivia;
 
-    public Trivia (List<Question> trivia){
+    public Trivia (List<Answer> trivia){
         _trivia = trivia;
     }
-    List<Question> emotions = new List<Question> {
-        new Question("question here", 10),
-        new Question("question here", 20),
-        new Question("question here", 30),
-        new Question("question here", 40)
+    List<Answer> emotions = new List<Answer> {
+        new Answer("question here", 10),
+        new Answer("question here", 20),
+        new Answer("question here", 30),
+        new Answer("question here", 40)
     };
 }
 
 class Emotions {
-    private List<Question> _emotions;
+    private List<Answer> _emotion;
 
-    public Emotions (List<Question> emotions){
-        _emotions = emotions;
+    public Emotions (List<Answer> emotion){
+        _emotion = emotion;
     }
-    List<Question> emotions = new List<Question> {
-        new Question("question here", 10),
-        new Question("question here", 20),
-        new Question("question here", 30),
-        new Question("question here", 40)
+    List<Answer> emotions = new List<Answer> {
+        new Answer("question here", 10),
+        new Answer("question here", 20),
+        new Answer("question here", 30),
+        new Answer("question here", 40)
     };
 }
