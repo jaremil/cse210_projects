@@ -27,9 +27,10 @@ class Program {
             {
                 
                 Activity.ShowSpinner(5);
+                Console.WriteLine($"{startmessageBreathing}");
                 var breathing = new BreathingActivity(startmessageBreathing, endmessageBreathing);
-                 breathing.Breath();
-                Console.WriteLine(endmessageBreathing);
+                breathing.Breath();
+                Console.WriteLine($"{endmessageBreathing}");
             }
             else if (userInput == "2")
             {
