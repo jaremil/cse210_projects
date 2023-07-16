@@ -29,6 +29,7 @@ class Program {
 
         string userInput = "";
         while (userInput != "7") {
+            Console.Clear();
             Console.WriteLine("\nPlease take each of these questionnaires once before receiving your results: \n1 Decision Making Questionnaire \n2 Habits Questionnaire \n3 Preferences Questionnaire \n4 Strengths Questionnaire \n5 Trivia Questionnaire \n6 Emotions Questionnaire \n7 See results");
             userInput = Console.ReadLine();
 
@@ -115,7 +116,7 @@ class Program {
             Console.WriteLine($"{emotions.GetCreativePercent()}");
 
             Console.Clear();
-            Console.WriteLine($"Your guess was: {guess} \n Your results were: \nDesion Making {decisionMaking.GetCreativePercent()}% creative {decisionMaking.GetLogicalPercent()}% logical \nHabits {habits.GetCreativePercent()}% creative {habits.GetLogicalPercent()}% logical \nPreferences {preferences.GetCreativePercent()}% creative {preferences.GetLogicalPercent()}% logical \nStrengths and Weaknesses {strengths.GetCreativePercent()}% creative {strengths.GetLogicalPercent()}% logical \nTrivia {trivia.GetCreativePercent()}% creative {trivia.GetLogicalPercent()}% logical Emotions {emotions.GetCreativePercent()}% creative {emotions.GetLogicalPercent()}% logical");
+            Console.WriteLine($"Your guess was: {guess} \n \nYour results were: \n \nDesion Making {decisionMaking.GetCreativePercent()}% creative {decisionMaking.GetLogicalPercent()}% logical \nHabits {habits.GetCreativePercent()}% creative {habits.GetLogicalPercent()}% logical \nPreferences {preferences.GetCreativePercent()}% creative {preferences.GetLogicalPercent()}% logical \nStrengths and Weaknesses {strengths.GetCreativePercent()}% creative {strengths.GetLogicalPercent()}% logical \nTrivia {trivia.GetCreativePercent()}% creative {trivia.GetLogicalPercent()}% logical \nEmotions {emotions.GetCreativePercent()}% creative {emotions.GetLogicalPercent()}% logical");
     }
 }
 
@@ -207,10 +208,10 @@ class DecisionMaking: Quiz {
 
 class Habits: Quiz {
     private List<string> _questions = new List<string>(){
-        "\nDo you perfer stratigic games or games where you need to think outside of the box? \n1 answer \n2 answer \n3 answer \n4 ",
-        "\nQuestion2 \n1 answer \n2 answer \n3 answer \n4 answer",
-        "\nQuestion3 \n1 answer \n2 answer \n3 answer \n4 answer",
-        "\nQuestion4 \n1 answer \n2 answer \n3 answer \n4 answer"
+        "\nDo you perfer stratigic games or games where you need to think outside of the box? \n1 Outside the box \n2 Both but perfer outside the box \n3 both but perfer stratigic \n4 Stratigic",
+        "\nHow do you study best? \n1 With music \n2 Later at night \n3 With a study group \n4 Somewhere quiet",
+        "\nHow do you spend your free time? \n1 Crafts \n2 Friends \n3 Games \n4 Movies",
+        "\nHow do you organize your work? \n1 Do what is easiest first to hardest \n2 I don't \n3 Work on most important first to least important \n4 To do lists"
     };
        protected override List<string> questions
     {
@@ -226,9 +227,9 @@ class Habits: Quiz {
 class Preferences: Quiz {
     private List<string> _questions = new List<string>(){
         "\nWhat kind of games do you like to play? \n1 Improv Games \n2 Word Association Games \n3 Problem Solving Games \n4 Strategic Games",
-        "\nQuestion2 \n1 answer \n2 answer \n3 answer \n4 answer",
-        "\nQuestion3 \n1 answer \n2 answer \n3 answer \n4 answer",
-        "\nQuestion4 \n1 answer \n2 answer \n3 answer \n4 answer"
+        "\nWhat kind of art projects do you like? \n1 Ones I've never tried \n2 water paints \n3 Bob Ross tutorial \n4 Paint by number",
+        "\nWhat kind of classes do you like? \n1 PE \n2 English \n3 History \n4 Math",
+        "\nWhat is your favorite dessert? \n1 Cake \n2 Ice cream \n3 Pudding \n4 Cookies"
     };
        protected override List<string> questions
     {
@@ -243,11 +244,12 @@ class Preferences: Quiz {
 
 class Strengths: Quiz {
     private List<string> _questions = new List<string>(){
-        "\nStory telling \n1 answer \n2 answer \n3 answer \n4 answer",
-        "\nQuestion2 \n1 answer \n2 answer \n3 answer \n4 answer",
-        "\nQuestion3 \n1 answer \n2 answer \n3 answer \n4 answer",
-        "\nQuestion4 \n1 answer \n2 answer \n3 answer \n4 answer"
+        "\nHow good are you at story telling \n1 Good \n2 Somewhat \n3 Not really \n4 No",
+        "\nHow good are you at planning \n1 Not good \n2 Somewhat \n3 Not really \n4 No",
+        "\nHow good are you at art? \n1 Good \n2 Somewhat \n3 Not really \n4 No",
+        "\nHow good are you at puzzles? \n1 Not good \n2 Somewhat \n3 Not really \n4 Good"
     };
+    
        protected override List<string> questions
     {
         get {
@@ -280,9 +282,9 @@ class Trivia: Quiz {
 class Emotions: Quiz {
     private List<string> _questions = new List<string>(){
         "\nAre you very aware of your emotions \n1 Yes \n2 Most of the time \n3 Sometimes \n4 No",
-        "\nQuestion2 \n1 answer \n2 answer \n3 answer \n4 answer",
-        "\nQuestion3 \n1 answer \n2 answer \n3 answer \n4 answer",
-        "\nQuestion4 \n1 answer \n2 answer \n3 answer \n4 answer"
+        "\nWhat do you focus on when facing conflict? \n1 I focus more on the emotions of both sides \n2 I focus on encouraging open-mindness \n3 I focus on problem solving \n4 I focus more on the facts of both sides",
+        "\nHow do you handle changes? \n1 I take time to become more comfortable with the change \n2 I like give it time \n3 I like to gain a better perspective \n4 The more I learn about the change, the better I feel about it",
+        "\nAre you very emotional? \n1 Yes \n2 Often \n3 Sometimes \n4 Not often"
     };
        protected override List<string> questions
     {
