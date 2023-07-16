@@ -207,7 +207,7 @@ class DecisionMaking: Quiz {
 
 class Habits: Quiz {
     private List<string> _questions = new List<string>(){
-        "\nDo you perfer stratigic games or games where you need to think outside of the box? \n1 answer \n2 answer \n3 answer \n4 answer",
+        "\nDo you perfer stratigic games or games where you need to think outside of the box? \n1 answer \n2 answer \n3 answer \n4 ",
         "\nQuestion2 \n1 answer \n2 answer \n3 answer \n4 answer",
         "\nQuestion3 \n1 answer \n2 answer \n3 answer \n4 answer",
         "\nQuestion4 \n1 answer \n2 answer \n3 answer \n4 answer"

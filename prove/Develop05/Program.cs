@@ -16,7 +16,7 @@ class Program
     // static void Main(string[] args)
     static void Main(string[] args)
     {
-        var simpleGoalDescription = new Goal();
+        var simpleGoalDescription = new SimpleGoal();
 
         string userInput = "0";
         while (userInput != "6")
